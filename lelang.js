@@ -51,6 +51,8 @@ const startLelang = async ({ namaIkan, hargaAwal, kenaikan }) => {
   }
 };
 
+
+// Add a function to place a bid
 const bid = async (nama, nominal, nomorHP) => {
   try {
     const doc = await accessSheet();
@@ -120,9 +122,9 @@ const bid = async (nama, nominal, nomorHP) => {
         console.log("Trying alternative update method...");
         // Try updating cell by cell
         const colIndexes = {
-          penawarTertinggi: 4,
-          hargaTertinggi: 5,
-          pemenang: 6
+          penawarTertinggi: 5,
+          hargaTertinggi: 6,
+          pemenang: 7
         };
         
         // Update cells directly

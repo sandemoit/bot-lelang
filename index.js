@@ -1,16 +1,17 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const { startLelang, bid, getAuctionStatus, closeLelang } = require('./lelang');
+require('dotenv').config();
 
 const client = new Client({ authStrategy: new LocalAuth() });
-const ADMIN_ID = '628xxxxxxx@c.us'; // admin WhatsApp number
+const ADMIN_ID = process.env.NOMOR_ADMIN; // admin WhatsApp number
 
 client.on('qr', (qr) => {
   qrcode.generate(qr, { small: true });
 });
 
 client.on('ready', () => {
-  console.log('✅ Bot lelang koi siap di grup!');
+  console.log('✅ Bot lelang koi sudah siap!');
 });
 
 client.on('message', async (msg) => {
